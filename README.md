@@ -1,4 +1,4 @@
-# vue-color Fork
+# vue-color fork
 
 [![npm](https://img.shields.io/npm/v/vue-color.svg)](https://www.npmjs.com/package/vue-color)
 
