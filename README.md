@@ -1,60 +1,30 @@
-# vue-color 
+# vue-color Fork
 
 [![npm](https://img.shields.io/npm/v/vue-color.svg)](https://www.npmjs.com/package/vue-color)
 
-Color Pickers for Sketch, Photoshop, Chrome & more with Vue.js(vue2.0).  
-
 ## [Live demo](http://xiaokaike.github.io/vue-color/)
-
-![intro](./intro.png)
 
 ## Installation
 
 ### NPM
 ```bash
-$ npm install vue-color
+$ npm install mr-vue-color
 ```
-
-### CommonJS
-```js
-var Photoshop = require('vue-color/src/Photoshop.vue');
-
-new Vue({
-  components: {
-    'Photoshop': Photoshop
-  }
-})
+### Yarn
+```bash
+$ yarn add mr-vue-color
 ```
 
 ### ES6
 ```js
-import { Photoshop } from 'vue-color'
+import ColorPicker from 'mr-vue-color/src/component/Simple.vue'
 
 new Vue({
   components: {
-    'photoshop-picker': Photoshop
+    ColorPicker
   }
 })
 ```
-
-### Browser globals
-The `dist` folder contains `vue-color.js` and `vue-color.min.js` with all components exported in the <code>window.VueColor</code> object. These bundles are also available on NPM packages.
-
-```html
-<script src="path/to/vue.js"></script>
-<script src="path/to/vue-color.min.js"></script>
-<script>
-  var Photoshop = VueColor.Photoshop
-</script>
-```
-
-## Local setup
-
-```
-npm install
-npm run dev
-```
-
 ## Usage
 
 ```js
@@ -80,13 +50,7 @@ var colors = { r: 255, g: 0, b: 0 }
 new Vue({
   el: '#app',
   components: {
-    'material-picker': material,
-    'compact-picker': compact,
-    'swatches-picker': swatches,
-    'slider-picker': slider,
-    'sketch-picker': sketch,
-    'chrome-picker': chrome,
-    'photoshop-picker': photoshop
+    ColorPicker
   },
   data () {
     return {
@@ -101,39 +65,25 @@ new Vue({
 
 ```html
 <!-- suppose you have the data 'colors' in your component -->
-<material-picker v-model="colors" />
-<compact-picker v-model="colors" />
-<swatches-picker v-model="colors" />
-<slider-picker v-model="colors" />
-<sketch-picker v-model="colors" />
-<chrome-picker v-model="colors" />
-<photoshop-picker v-model="colors" />
+<color-picker v-model="colors" />
 ```
 
 OR
 
 ```html
-<chrome-picker :value="colors" @input="updateValue"></chrome-picker>
+<color-picker :value="colors" @input="updateValue"></color-picker>
 ```
 
-In some cases you can give the component a predefined set of colors with the property `presetColors` (for `Sketch` only) or `palette` (for `Compact` and `Grayscale`), by simply passing it an array with the color values as strings in any css compatible format.
+In some cases you can give the component a predefined set of colors with the property `presetColors`, by simply passing it an array with the color values as strings in any css compatible format.
 
 ```html
-<sketch-picker 
+<color-picker 
   @input="updateValue"
   :value="colors"
   :preset-colors="[ 
     '#f00', '#00ff00', '#00ff0055', 'rgb(201, 76, 76)', 'rgba(0,0,255,1)', 'hsl(89, 43%, 51%)', 'hsla(89, 43%, 51%, 0.6)'
   ]"
-></sketch-picker>
-
-<compact-picker 
-  @input="updateValue"
-  :value="colors"
-  :palette="[ 
-    '#f00', '#00ff00', '#00ff0055', 'rgb(201, 76, 76)', 'rgba(0,0,255,1)', 'hsl(89, 43%, 51%)', 'hsla(89, 43%, 51%, 0.6)'
-  ]"
-></compact-picker>
+/>
 ```
 
 ## License
