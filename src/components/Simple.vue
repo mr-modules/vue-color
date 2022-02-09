@@ -18,18 +18,14 @@
       </div>
     </div>
     <div class="vc-sketch-field" v-if="!disableFields">
-      <!-- rgba -->
-      <div class="vc-sketch-field--double">
-        <ed-in label="hex" :value="hex" @change="inputChange"></ed-in>
+      <div class="vc-sketch-field--single">
+        <ed-in label="h" :value="colors.hsl.h" @change="inputChange"></ed-in>
       </div>
       <div class="vc-sketch-field--single">
-        <ed-in label="r" :value="colors.rgba.r" @change="inputChange"></ed-in>
+        <ed-in label="s" :value="colors.hsl.s" @change="inputChange"></ed-in>
       </div>
       <div class="vc-sketch-field--single">
-        <ed-in label="g" :value="colors.rgba.g" @change="inputChange"></ed-in>
-      </div>
-      <div class="vc-sketch-field--single">
-        <ed-in label="b" :value="colors.rgba.b" @change="inputChange"></ed-in>
+        <ed-in label="l" :value="colors.hsl.l" @change="inputChange"></ed-in>
       </div>
       <div class="vc-sketch-field--single" v-if="!disableAlpha">
         <ed-in label="a" :value="colors.a" :arrow-offset="0.01" :max="1" @change="inputChange"></ed-in>
@@ -150,19 +146,17 @@ export default {
 <style>
 .vc-sketch {
   position: relative;
-  width: 200px;
-  padding: 10px 10px 0;
-  box-sizing: initial;
-  background: #fff;
-  border-radius: 4px;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, .15), 0 8px 16px rgba(0, 0, 0, .15);
+  width: 100%;
+  padding: 0.5rem 0.5rem 0;
+  margin: auto;
 }
 
 .vc-sketch-saturation-wrap {
   width: 100%;
-  padding-bottom: 75%;
+  height: 100px;
   position: relative;
   overflow: hidden;
+  margin-bottom: 0.5rem;
 }
 
 .vc-sketch-controls {
@@ -172,6 +166,7 @@ export default {
 .vc-sketch-sliders {
   padding: 4px 0;
   flex: 1;
+  margin-bottom: 0.5rem;
 }
 
 .vc-sketch-sliders .vc-hue,
@@ -251,8 +246,6 @@ export default {
   margin-right: -10px;
   margin-left: -10px;
   padding-left: 10px;
-  padding-top: 10px;
-  border-top: 1px solid #eee;
 }
 
 .vc-sketch-presets-color {
@@ -260,7 +253,7 @@ export default {
   overflow: hidden;
   position: relative;
   display: inline-block;
-  margin: 0 10px 10px 0;
+  margin: 0 0.5rem 0.5rem 0;
   vertical-align: top;
   cursor: pointer;
   width: 16px;
